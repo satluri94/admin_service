@@ -116,8 +116,7 @@ def setTimings(request):
             return JsonResponse({'message': 'Field is empty'}, status=status.HTTP_400_BAD_REQUEST)
     
 
-@api_view(['GET'])
-def getNewOrders(request):
+class getNewOrders(generics.ListCreateAPIView):
     queryset = NewOrders.objects.all()
     serializer_class = NewOrderSerializer
 
